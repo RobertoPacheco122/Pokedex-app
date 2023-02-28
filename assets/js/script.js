@@ -28,10 +28,12 @@ function createPokeCardTypesHTML(pokemonType) {
 
 function createPokeCardHTML(pokemon) {
   return `
-    <span class="main__id--poke">#${pokemon.id}</span>
+    <div class="main--container--pokename">
+      <h2 class="main__name--poke">${pokemon.name}</h2>
+      <span class="main__id--poke">#${pokemon.id}</span>
+    </div>
     <div class="main--container--pokeinfos">
       <div class="main--container--pokecontent">
-        <h2 class="main__name--poke">${pokemon.name}</h2>
         ${createPokeCardTypesHTML(pokemon.types[0])}
         ${createPokeCardTypesHTML(pokemon.types[1])}
       </div>
