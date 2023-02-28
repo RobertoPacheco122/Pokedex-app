@@ -16,3 +16,11 @@
 .icon--menu {
   background-image: url("../img/icons/menu.svg");
 }
+
+.icon--search {
+  background-image: url("../img/icons/interface/procurar.svg");
+}
+
+.icon--filter {
+  background-image: url("../img/icons/interface/filtro.svg");
+}
