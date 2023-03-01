@@ -22,7 +22,12 @@ function createPokeObject(pokemon) {
 
 function createPokeCardTypesHTML(pokemonType) {
   if (pokemonType)
-    return `<span class="main__types--poke">${pokemonType}</span>`;
+    return `
+      <span class="main__types--poke">
+      <i class="main__icon--type icon icon--${pokemonType}"></i>
+        ${pokemonType}
+      </span>
+    `;
   return "";
 }
 
