@@ -120,6 +120,12 @@
   text-transform: capitalize;
 }
 
+.main__icon--type {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
 .main__name--poke {
   margin-bottom: 0.5rem;
 }
@@ -130,10 +136,10 @@
 }
 
 .main__types--poke {
-  display: block;
+  display: flex;
   margin-bottom: 0.4rem;
-  background-color: rgba(255, 255, 255, 0.2);
-  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  align-items: center;
   font-size: 0.8rem;
   padding: 0.2rem;
   border-radius: 75px;
