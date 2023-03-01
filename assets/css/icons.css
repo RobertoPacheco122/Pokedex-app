@@ -24,3 +24,71 @@
 .icon--filter {
   background-image: url("../img/icons/interface/filtro.svg");
 }
+
+.icon--fire {
+  background-image: url("../img/icons/poke-types/fire.svg");
+}
+
+.icon--grass {
+  background-image: url("../img/icons/poke-types/grass.svg");
+}
+
+.icon--bug {
+  background-image: url("../img/icons/poke-types/bug.svg");
+}
+
+.icon--water {
+  background-image: url("../img/icons/poke-types/water.svg");
+}
+
+.icon--poison {
+  background-image: url("../img/icons/poke-types/poison.svg");
+}
+
+.icon--normal {
+  background-image: url("../img/icons/poke-types/normal.svg");
+}
+
+.icon--electric {
+  background-image: url("../img/icons/poke-types/electric.svg");
+}
+
+.icon--steel {
+  background-image: url("../img/icons/poke-types/steel.svg");
+}
+
+.icon--ground {
+  background-image: url("../img/icons/poke-types/ground.svg");
+}
+
+.icon--rock {
+  background-image: url("../img/icons/poke-types/rock.svg");
+}
+
+.icon--fairy {
+  background-image: url("../img/icons/poke-types/fairy.svg");
+}
+
+.icon--psychic {
+  background-image: url("../img/icons/poke-types/psychic.svg");
+}
+
+.icon--fighting {
+  background-image: url("../img/icons/poke-types/fighting.svg");
+}
+
+.icon--flying {
+  background-image: url("../img/icons/poke-types/flying.svg");
+}
+
+.icon--dragon {
+  background-image: url("../img/icons/poke-types/dragon.svg");
+}
+
+.icon--ice {
+  background-image: url("../img/icons/poke-types/ice.svg");
+}
+
+.icon--ghost {
+  background-image: url("../img/icons/poke-types/ghost.svg");
+}
