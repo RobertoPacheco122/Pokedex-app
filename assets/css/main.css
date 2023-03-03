@@ -133,6 +133,21 @@
 .main__image--poke {
   width: 60px;
   height: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.main--container--pokeimage {
+  position: relative;
+}
+
+.main__image--pokeball {
+  width: 70px;
+  height: 70px;
+  left: -4px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.2;
 }
 
 .main__types--poke {
