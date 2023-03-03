@@ -44,6 +44,7 @@ function createPokeCardHTML(pokemon) {
       </div>
       <div class="main--container--pokeimage">
         <img src="${pokemon.officialSprite}" alt="" class="main__image--poke">
+        <img src="./assets/img/pokeball.png" alt="" class="main__image--pokeball">
       </div>
     </div>
   `;
