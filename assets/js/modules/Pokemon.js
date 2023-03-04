@@ -27,6 +27,14 @@ export default class Pokemon {
     };
   }
 
+  static convertHeightToCentimeters(height) {
+    return height * 10;
+  }
+
+  static convertWeightToKilograms(weight) {
+    return weight / 10;
+  }
+
   static createCardTypesHTML(pokemonType) {
     if (pokemonType)
       return `
