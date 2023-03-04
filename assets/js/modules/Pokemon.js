@@ -21,6 +21,8 @@ export default class Pokemon {
       id: pokemon.id,
       pixelSprite: pokemon.sprites.front_default,
       officialSprite: pokemon.sprites.other["official-artwork"].front_default,
+      height: pokemon.height,
+      weight: pokemon.weight,
       types: pokemon.types.map((item) => item.type.name),
     };
   }
