@@ -25,6 +25,10 @@
   background-image: url("../img/icons/interface/filtro.svg");
 }
 
+.icon--heart {
+  background-image: url("../img/icons/interface/coracao.svg");
+}
+
 .icon--fire {
   background-image: url("../img/icons/poke-types/fire.svg");
 }
