@@ -1,5 +1,3 @@
-import createInfosHTML from "../infos.js";
-
 export default class Pokemon {
   static getLink(option) {
     return `https://pokeapi.co/api/v2/pokemon/${option}`;
@@ -51,7 +49,7 @@ export default class Pokemon {
   static createCardHTML(pokemon) {
     return `
     <div class="main--container--pokename">
-      <h2 class="main__name--poke">${pokemon.name}</h2>
+      <h2 class="main__name--poke bold">${pokemon.name}</h2>
       <span class="main__id--poke">#${pokemon.id}</span>
     </div>
     <div class="main--container--pokeinfos">
@@ -79,7 +77,7 @@ export default class Pokemon {
         .then((text) => {
           pageContainer.innerHTML = text;
         })
-        .then(() => createInfosHTML(pokemonID));
+        .then(() => Pokemon.createInfosHTML(pokemonID));
     });
   }
 
@@ -93,6 +91,59 @@ export default class Pokemon {
       pokeCard.innerHTML = Pokemon.createCardHTML(poke);
       Pokemon.addCardEvent(pokeCard);
       fatherContainer.appendChild(pokeCard);
+    });
+  }
+
+  static createInfos(pokemon) {
+    return `
+    <div class="poke--container--name">
+      <h1 class="poke__name bold">${pokemon.name}</h1>
+      <span class="poke__id bold">#${pokemon.id}</span>
+    </div>
+    <div class="poke--container--type">
+      <ul class="poke__list--type">
+        ${Pokemon.createCardTypesHTML(pokemon.types[0])}
+        ${Pokemon.createCardTypesHTML(pokemon.types[1])}
+      </ul>
+    </div>
+    <div class="poke--container--image">
+      <img src="${pokemon.pixelSprite}" alt="" class="poke__image">
+      <img src="assets/img/pokeball.png" alt="" class="poke__image--ball">
+    </div>
+    `;
+  }
+
+  static createHeightWeightTableHTML(pokemon) {
+    return `
+    <table class="poke__table">
+      <thead class="poke__thead">
+        <tr class="poke__row">
+          <th class="poke__cell--thead">Height</th>
+          <th class="poke__cell--thead">Weight</th>
+        </tr>
+        <tr class="poke__row">
+          <td class="poke__cell">${Pokemon.convertHeightToCentimeters(
+            pokemon.height
+          )} cm</td>
+          <td class="poke__cell">${Pokemon.convertWeightToKilograms(
+            pokemon.weight
+          )} Kg</td>
+        </tr>
+      </thead>
+    </table>
+    `;
+  }
+
+  static createInfosHTML(pokemonID) {
+    Pokemon.getPromise(pokemonID).then((response) => {
+      const pokemon = Pokemon.createObject(response);
+      const infos = document.querySelector(".poke--container--infos");
+      const table = document.querySelector(".poke--container--table");
+      const body = document.querySelector("body");
+      body.classList.add(pokemon.types[0]);
+
+      infos.innerHTML = Pokemon.createInfos(pokemon);
+      table.innerHTML = Pokemon.createHeightWeightTableHTML(pokemon);
     });
   }
 
