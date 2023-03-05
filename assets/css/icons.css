@@ -96,3 +96,7 @@
 .icon--ghost {
   background-image: url("../img/icons/poke-types/ghost.svg");
 }
+
+.icon--dark {
+  background-image: url("../img/icons/poke-types/dark.svg");
+}
