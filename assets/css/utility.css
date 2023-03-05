@@ -1,0 +1,32 @@
+:root {
+  --font-default: sans-serif;
+}
+
+.page {
+  font-family: var(--font-default);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.grey--text {
+  color: #9c9a9a;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+.container-1 {
+  padding: 0 1rem;
+}
