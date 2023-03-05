@@ -1,17 +1,14 @@
-.bold {
-  font-weight: bold;
-}
-
-.grey--text {
-  color: #9c9a9a;
-}
-
 .poke--container--infos {
   color: #ffffff;
 }
 
-.poke--container--name {
+.poke--container--name,
+.poke--container--image,
+.poke__list--type {
   display: flex;
+}
+
+.poke--container--name {
   align-items: center;
   justify-content: space-between;
 }
@@ -22,13 +19,13 @@
 }
 
 .poke__name,
-.poke__id {
-  font-weight: bold;
+.poke__id,
+.poke__text,
+.poke__subtitle {
   margin-bottom: 1rem;
 }
 
 .poke--container--image {
-  display: flex;
   justify-content: center;
   position: relative;
 }
@@ -38,17 +35,16 @@
 }
 
 .poke__list--type {
-  display: flex;
   gap: 0.7rem;
 }
 
 .poke__image--ball {
-  opacity: 0.3;
-  width: 180px;
   height: 180px;
+  opacity: 0.3;
   position: absolute;
-  z-index: -1;
   top: 25px;
+  width: 180px;
+  z-index: -1;
 }
 
 .poke--container--data {
@@ -60,14 +56,10 @@
 
 .poke__list--nav {
   display: grid;
+  font-size: 0.9rem;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   margin-bottom: 2rem;
-  font-size: 0.9rem;
-}
-
-.poke__link {
-  text-decoration: none;
 }
 
 .poke__cell--thead,
@@ -80,25 +72,22 @@
 }
 
 .poke__cell {
-  text-align: center;
   padding: 0.5rem;
+  text-align: center;
 }
 
 .poke--container--table {
-  padding: 1rem;
-  box-shadow: 0px 11px 12px 5px rgba(0, 0, 0, 6%);
-  border-radius: 25px;
   border: 1px solid #e4e1e1;
+  border-radius: 25px;
+  box-shadow: 0px 11px 12px 5px rgba(0, 0, 0, 6%);
   margin: 2rem 0;
+  padding: 1rem;
 }
 
 .poke__text {
-  margin-bottom: 1rem;
   line-height: 1.2rem;
 }
 
 .poke__subtitle {
   font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
 }
