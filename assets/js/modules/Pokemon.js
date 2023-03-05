@@ -1,3 +1,5 @@
+import createInfosHTML from "../infos.js";
+
 export default class Pokemon {
   static getLink(option) {
     return `https://pokeapi.co/api/v2/pokemon/${option}`;
@@ -65,6 +67,22 @@ export default class Pokemon {
     `;
   }
 
+  static addCardEvent(card) {
+    card.addEventListener("click", (event) => {
+      const pageContainer = document.querySelector(".page");
+      const pokemonID = event.currentTarget
+        .querySelector(".main__id--poke")
+        .innerText.replace("#", "");
+
+      fetch("./poke-infos.html")
+        .then((response) => response.text())
+        .then((text) => {
+          pageContainer.innerHTML = text;
+        })
+        .then(() => createInfosHTML(pokemonID));
+    });
+  }
+
   static createCards(pokemonData, containerClass) {
     const fatherContainer = document.querySelector(containerClass);
 
@@ -73,6 +91,7 @@ export default class Pokemon {
       const poke = Pokemon.createObject(pokemon);
       pokeCard.classList.add("main--container--poke", poke.types[0]);
       pokeCard.innerHTML = Pokemon.createCardHTML(poke);
+      Pokemon.addCardEvent(pokeCard);
       fatherContainer.appendChild(pokeCard);
     });
   }
