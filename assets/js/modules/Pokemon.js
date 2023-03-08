@@ -11,8 +11,15 @@ export default class Pokemon {
       );
   }
 
-  static getPromise(pokeID) {
-    return fetch(Pokemon.getLink(pokeID)).then((response) => response.json());
+  static async getPromise(pokeID) {
+    try {
+      const pokePromise = await fetch(Pokemon.getLink(pokeID));
+      const pokeJSON = pokePromise.json();
+      return pokeJSON;
+    } catch {
+      console.log("getPromise não encontrou nada");
+    }
+    return false;
   }
 
   static createObject(pokemon) {
@@ -81,16 +88,21 @@ export default class Pokemon {
     });
   }
 
+  static createPokeListItem(pokemonData) {
+    const pokeListItem = document.createElement("div");
+    const poke = Pokemon.createObject(pokemonData);
+    pokeListItem.classList.add("main--container--poke", poke.types[0]);
+    pokeListItem.innerHTML = Pokemon.createCardHTML(poke);
+    Pokemon.addCardEvent(pokeListItem);
+    return pokeListItem;
+  }
+
   static createCards(pokemonData, containerClass) {
     const fatherContainer = document.querySelector(containerClass);
 
     pokemonData.forEach((pokemon) => {
-      const pokeCard = document.createElement("div");
-      const poke = Pokemon.createObject(pokemon);
-      pokeCard.classList.add("main--container--poke", poke.types[0]);
-      pokeCard.innerHTML = Pokemon.createCardHTML(poke);
-      Pokemon.addCardEvent(pokeCard);
-      fatherContainer.appendChild(pokeCard);
+      const pokeItem = Pokemon.createPokeListItem(pokemon);
+      fatherContainer.appendChild(pokeItem);
     });
   }
 
