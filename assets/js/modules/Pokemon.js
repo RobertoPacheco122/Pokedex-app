@@ -106,6 +106,12 @@ export default class Pokemon {
     });
   }
 
+  static createCard(pokemonData, containerClass) {
+    const fatherContainer = document.querySelector(containerClass);
+    const pokeItem = Pokemon.createPokeListItem(pokemonData);
+    fatherContainer.appendChild(pokeItem);
+  }
+
   static createInfos(pokemon) {
     return `
     <div class="poke--container--name">
