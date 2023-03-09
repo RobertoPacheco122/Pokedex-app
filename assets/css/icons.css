@@ -20,6 +20,10 @@
   background-image: url("../img/icons/interface/coracao.svg");
 }
 
+.icon--sad {
+  background-image: url("../img/icons/interface/triste.svg");
+}
+
 .icon--fire {
   background-image: url("../img/icons/poke-types/fire.svg");
 }
