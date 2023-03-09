@@ -12,12 +12,9 @@ export default class Pokemon {
   }
 
   static async getPromise(pokeID) {
-    try {
-      const pokePromise = await fetch(Pokemon.getLink(pokeID));
-      const pokeJSON = pokePromise.json();
-      return pokeJSON;
-    } catch {
-      console.log("getPromise não encontrou nada");
+    const pokePromise = await fetch(Pokemon.getLink(pokeID));
+    if (pokePromise.ok) {
+      return pokePromise.json();
     }
     return false;
   }
