@@ -31,14 +31,6 @@ export default class Pokemon {
     };
   }
 
-  static convertHeightToCentimeters(height) {
-    return height * 10;
-  }
-
-  static convertWeightToKilograms(weight) {
-    return weight / 10;
-  }
-
   static createCardTypesHTML(pokemonType) {
     if (pokemonType)
       return `
@@ -125,27 +117,6 @@ export default class Pokemon {
       <img src="${pokemon.pixelSprite}" alt="" class="poke__image">
       <img src="assets/img/pokeball.png" alt="" class="poke__image--ball">
     </div>
-    `;
-  }
-
-  static createHeightWeightTableHTML(pokemon) {
-    return `
-    <table class="poke__table">
-      <thead class="poke__thead">
-        <tr class="poke__row">
-          <th class="poke__cell--thead">Height</th>
-          <th class="poke__cell--thead">Weight</th>
-        </tr>
-        <tr class="poke__row">
-          <td class="poke__cell">${Pokemon.convertHeightToCentimeters(
-            pokemon.height
-          )} cm</td>
-          <td class="poke__cell">${Pokemon.convertWeightToKilograms(
-            pokemon.weight
-          )} Kg</td>
-        </tr>
-      </thead>
-    </table>
     `;
   }
 
