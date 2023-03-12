@@ -106,7 +106,8 @@
 
 .poke__stats--name,
 .poke__text--eggGroups,
-.poke__name {
+.poke__name,
+.poke--chain--name {
   text-transform: capitalize;
 }
 
