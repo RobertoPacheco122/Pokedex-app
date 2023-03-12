@@ -47,7 +47,7 @@ export default class Pokemon {
     return {
       flavorText: pokemonSpeciesData.flavor_text_entries[8].flavor_text,
       eggGroups: pokemonSpeciesData.egg_groups.map((egg) => egg.name),
-      evolutionChain: pokemonSpeciesData.evolution_chain.url,
+      evolutionChainURL: pokemonSpeciesData.evolution_chain.url,
       genderRate: pokemonSpeciesData.gender_rate,
     };
   }
@@ -112,27 +112,24 @@ export default class Pokemon {
   }
 
   static async createInfosHTML(pokemonID) {
+    const pokemonData = await Pokemon.getPromise("pokemon", pokemonID);
     const pokemonSpeciesData = await Pokemon.getPromise(
       "pokemon-species",
       pokemonID
     );
-
+    const pokemon = Pokemon.createObject(pokemonData);
     const pokemonSpecies = Pokemon.createSpeciesObject(pokemonSpeciesData);
 
-    Pokemon.getPromise("pokemon", pokemonID).then((response) => {
-      const pokemon = Pokemon.createObject(response);
-      const body = document.querySelector("body");
-      body.classList.add(pokemon.types[0]);
+    const body = document.querySelector("body");
+    body.classList.add(pokemon.types[0]);
 
-      renderPokeInfos(
-        ".poke--container--infos",
-        ".poke--container--sections",
-        pokemon,
-        pokemonSpecies
-      );
-
-      initTabNav(".poke__link", ".poke__section");
-    });
+    await renderPokeInfos(
+      ".poke--container--infos",
+      ".poke--container--sections",
+      pokemon,
+      pokemonSpecies
+    );
+    initTabNav(".poke__link", ".poke__section");
   }
 
   static async getData(quantity) {
