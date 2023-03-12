@@ -8,8 +8,6 @@ export default function renderAboutSection(pokemon, pokemonSpecies) {
   const pokemonFemalePercentage =
     (pokemonSpecies.genderRate / genderEighths) * 100;
 
-  console.log(pokemonSpecies);
-
   section.innerHTML = `
     <p class="poke__text">${pokemonSpecies.flavorText}</p>
 
