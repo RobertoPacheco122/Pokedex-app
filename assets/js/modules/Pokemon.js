@@ -28,6 +28,12 @@ export default class Pokemon {
       height: pokemon.height,
       weight: pokemon.weight,
       types: pokemon.types.map((item) => item.type.name),
+      stats: pokemon.stats.map((stat) => [
+        {
+          name: stat.stat.name,
+          stat: stat.base_stat,
+        },
+      ]),
     };
   }
 
