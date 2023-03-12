@@ -27,7 +27,7 @@ function handleChange(event) {
 
   const inputValue = searchInput.value.toLowerCase();
 
-  Pokemon.getPromise(inputValue).then((response) => {
+  Pokemon.getPromise("pokemon", inputValue).then((response) => {
     if (response) {
       Pokemon.createCard(response, ".main--container--cards");
     } else {
