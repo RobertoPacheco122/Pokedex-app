@@ -15,7 +15,6 @@
 
 .poke__name {
   font-size: 2rem;
-  text-transform: capitalize;
 }
 
 .poke__name,
@@ -105,7 +104,9 @@
   margin-bottom: 1.5rem;
 }
 
-.poke__stats--name {
+.poke__stats--name,
+.poke__text--eggGroups,
+.poke__name {
   text-transform: capitalize;
 }
 
