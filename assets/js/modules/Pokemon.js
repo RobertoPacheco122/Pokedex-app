@@ -3,20 +3,22 @@ import renderCardTypes from "../render/renderCardTypes.js";
 import initTabNav from "../utils/tabNav.js";
 
 export default class Pokemon {
-  static getLink(option) {
-    return `https://pokeapi.co/api/v2/pokemon/${option}`;
+  static getLink(resource, pokeIdOrName) {
+    return `https://pokeapi.co/api/v2/${resource}/${pokeIdOrName}`;
   }
 
   static getPromises(quantity) {
     return Array(quantity)
       .fill()
       .map((_, index) =>
-        fetch(Pokemon.getLink(index + 1)).then((pokeData) => pokeData.json())
+        fetch(Pokemon.getLink("pokemon", index + 1)).then((pokeData) =>
+          pokeData.json()
+        )
       );
   }
 
-  static async getPromise(pokeID) {
-    const pokePromise = await fetch(Pokemon.getLink(pokeID));
+  static async getPromise(resource, pokeIdOrName) {
+    const pokePromise = await fetch(Pokemon.getLink(resource, pokeIdOrName));
     if (pokePromise.ok) {
       return pokePromise.json();
     }
@@ -100,8 +102,8 @@ export default class Pokemon {
     fatherContainer.appendChild(pokeItem);
   }
 
-  static createInfosHTML(pokemonID) {
-    Pokemon.getPromise(pokemonID).then((response) => {
+  static async createInfosHTML(pokemonID) {
+    Pokemon.getPromise("pokemon", pokemonID).then((response) => {
       const pokemon = Pokemon.createObject(response);
       const body = document.querySelector("body");
       body.classList.add(pokemon.types[0]);
