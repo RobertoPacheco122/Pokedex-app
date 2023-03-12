@@ -1,4 +1,5 @@
 import renderPokeInfos from "../render/poke-infos/renderPokeInfos.js";
+import renderCardTypes from "../render/renderCardTypes.js";
 import initTabNav from "../utils/tabNav.js";
 
 export default class Pokemon {
@@ -48,8 +49,8 @@ export default class Pokemon {
     </div>
     <div class="main--container--pokeinfos">
       <div class="main--container--pokecontent">
-        ${Pokemon.createCardTypesHTML(pokemon.types[0])}
-        ${Pokemon.createCardTypesHTML(pokemon.types[1])}
+        ${renderCardTypes(pokemon.types[0])}
+        ${renderCardTypes(pokemon.types[1])}
       </div>
       <div class="main--container--pokeimage">
         <img src="${pokemon.officialSprite}" alt="" class="main__image--poke">
