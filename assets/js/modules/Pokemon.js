@@ -43,6 +43,15 @@ export default class Pokemon {
     };
   }
 
+  static createSpeciesObject(pokemonSpeciesData) {
+    return {
+      flavorText: pokemonSpeciesData.flavor_text_entries[8].flavor_text,
+      eggGroups: pokemonSpeciesData.egg_groups.map((egg) => egg.name),
+      evolutionChain: pokemonSpeciesData.evolution_chain.url,
+      genderRate: pokemonSpeciesData.gender_rate,
+    };
+  }
+
   static createCardHTML(pokemon) {
     return `
     <div class="main--container--pokename">
@@ -103,6 +112,13 @@ export default class Pokemon {
   }
 
   static async createInfosHTML(pokemonID) {
+    const pokemonSpeciesData = await Pokemon.getPromise(
+      "pokemon-species",
+      pokemonID
+    );
+
+    const pokemonSpecies = Pokemon.createSpeciesObject(pokemonSpeciesData);
+
     Pokemon.getPromise("pokemon", pokemonID).then((response) => {
       const pokemon = Pokemon.createObject(response);
       const body = document.querySelector("body");
@@ -111,7 +127,8 @@ export default class Pokemon {
       renderPokeInfos(
         ".poke--container--infos",
         ".poke--container--sections",
-        pokemon
+        pokemon,
+        pokemonSpecies
       );
 
       initTabNav(".poke__link", ".poke__section");
