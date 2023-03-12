@@ -1,10 +1,17 @@
-export default function renderAboutSection(pokemon) {
+export default function renderAboutSection(pokemon, pokemonSpecies) {
   const section = document.createElement("section");
   section.classList.add("poke__section", "poke__section--about");
+
+  const genderEighths = 8;
+  const pokemonMalePorcentage =
+    ((genderEighths - pokemonSpecies.genderRate) / genderEighths) * 100;
+  const pokemonFemalePercentage =
+    (pokemonSpecies.genderRate / genderEighths) * 100;
+
+  console.log(pokemonSpecies);
+
   section.innerHTML = `
-    <p class="poke__text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tempus pharetra quam non sollicitudin. Ut quis sem lacinia, dapibus turpis vitae, ultricies nulla. Sed feugiat est nec erat condimentum, a tempus tellus posuere.
-    </p>
+    <p class="poke__text">${pokemonSpecies.flavorText}</p>
 
     <div class="poke--container--table">
       <table class="poke__table">
@@ -23,10 +30,12 @@ export default function renderAboutSection(pokemon) {
 
     <h2 class="poke__subtitle bold">Breeding</h2>
     <p class="poke__text">
-      <span class="grey--text">Gender: </span> ♂ 87.5% ♀ 12.5%
+      <span class="grey--text">Gender: </span> ♂ ${pokemonMalePorcentage}% ♀ ${pokemonFemalePercentage}%
     </p>
     <p class="poke__text">
-      <span class="grey--text">Egg Groups: </span>Monster
+      <span class="grey--text">Egg Groups: </span><span class="poke__text--eggGroups">${
+        pokemonSpecies.eggGroups
+      }</span>
     </p>
     <p class="poke__text">
       <span class="grey--text">Egg Cycle: </span>Grass
