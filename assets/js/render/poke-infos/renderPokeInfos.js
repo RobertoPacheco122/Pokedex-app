@@ -4,7 +4,7 @@ import renderBaseStatsSection from "./renderBaseStats.js";
 import renderEvolutionSection from "./renderEvolution.js";
 import renderAbilitiesSection from "./renderAbilities.js";
 
-export default function renderPokeInfos(
+export default async function renderPokeInfos(
   summaryClass,
   sectionsClass,
   pokemon,
@@ -16,6 +16,6 @@ export default function renderPokeInfos(
   summary.innerHTML = renderSummarySection(pokemon);
   sections.appendChild(renderAboutSection(pokemon, pokemonSpecies));
   sections.appendChild(renderBaseStatsSection(pokemon));
-  sections.appendChild(renderEvolutionSection(pokemon));
+  sections.appendChild(await renderEvolutionSection(pokemonSpecies));
   sections.appendChild(renderAbilitiesSection(pokemon));
 }
