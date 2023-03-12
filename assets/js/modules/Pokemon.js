@@ -40,17 +40,6 @@ export default class Pokemon {
     };
   }
 
-  static createCardTypesHTML(pokemonType) {
-    if (pokemonType)
-      return `
-        <span class="main__types--poke">
-        <i class="main__icon--type icon icon--${pokemonType}"></i>
-        ${pokemonType}
-        </span>
-      `;
-    return "";
-  }
-
   static createCardHTML(pokemon) {
     return `
     <div class="main--container--pokename">
@@ -108,25 +97,6 @@ export default class Pokemon {
     const fatherContainer = document.querySelector(containerClass);
     const pokeItem = Pokemon.createPokeListItem(pokemonData);
     fatherContainer.appendChild(pokeItem);
-  }
-
-  static createInfos(pokemon) {
-    return `
-    <div class="poke--container--name">
-      <h1 class="poke__name bold">${pokemon.name}</h1>
-      <span class="poke__id bold">#${pokemon.id}</span>
-    </div>
-    <div class="poke--container--type">
-      <ul class="poke__list--type">
-        ${Pokemon.createCardTypesHTML(pokemon.types[0])}
-        ${Pokemon.createCardTypesHTML(pokemon.types[1])}
-      </ul>
-    </div>
-    <div class="poke--container--image">
-      <img src="${pokemon.pixelSprite}" alt="" class="poke__image">
-      <img src="assets/img/pokeball.png" alt="" class="poke__image--ball">
-    </div>
-    `;
   }
 
   static createInfosHTML(pokemonID) {
