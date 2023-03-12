@@ -1,3 +1,6 @@
+import renderPokeInfos from "../render/poke-infos/renderPokeInfos.js";
+import initTabNav from "../utils/tabNav.js";
+
 export default class Pokemon {
   static getLink(option) {
     return `https://pokeapi.co/api/v2/pokemon/${option}`;
@@ -129,13 +132,16 @@ export default class Pokemon {
   static createInfosHTML(pokemonID) {
     Pokemon.getPromise(pokemonID).then((response) => {
       const pokemon = Pokemon.createObject(response);
-      const infos = document.querySelector(".poke--container--infos");
-      const table = document.querySelector(".poke--container--table");
       const body = document.querySelector("body");
       body.classList.add(pokemon.types[0]);
 
-      infos.innerHTML = Pokemon.createInfos(pokemon);
-      table.innerHTML = Pokemon.createHeightWeightTableHTML(pokemon);
+      renderPokeInfos(
+        ".poke--container--infos",
+        ".poke--container--sections",
+        pokemon
+      );
+
+      initTabNav(".poke__link", ".poke__section");
     });
   }
 
