@@ -3,7 +3,7 @@ import renderCardTypes from "../renderCardTypes.js";
 export default function renderSummarySection(pokemon) {
   return `
     <div class="poke--container--name">
-      <h1 class="poke__name bold">${pokemon.name}</h1>
+      <h1 class="poke__name capitalize bold">${pokemon.name}</h1>
       <span class="poke__id bold">#${pokemon.id}</span>
     </div>
     <div class="poke--container--type">

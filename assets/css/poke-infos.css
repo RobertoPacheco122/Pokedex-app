@@ -104,13 +104,6 @@
   margin-bottom: 1.5rem;
 }
 
-.poke__stats--name,
-.poke__text--eggGroups,
-.poke__name,
-.poke--chain--name {
-  text-transform: capitalize;
-}
-
 .poke--chain {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

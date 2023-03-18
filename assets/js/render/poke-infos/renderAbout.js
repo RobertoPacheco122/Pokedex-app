@@ -31,7 +31,7 @@ export default function renderAboutSection(pokemon, pokemonSpecies) {
       <span class="grey--text">Gender: </span> ♂ ${pokemonMalePorcentage}% ♀ ${pokemonFemalePercentage}%
     </p>
     <p class="poke__text">
-      <span class="grey--text">Egg Groups: </span><span class="poke__text--eggGroups">${
+      <span class="grey--text">Egg Groups: </span><span class="poke__text--eggGroups capitalize">${
         pokemonSpecies.eggGroups
       }</span>
     </p>

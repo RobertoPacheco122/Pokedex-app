@@ -120,11 +120,6 @@
   width: 100%;
 }
 
-.main__name--poke,
-.main__types--poke {
-  text-transform: capitalize;
-}
-
 .main__icon--type {
   margin-right: 5px;
   height: 20px;

@@ -34,7 +34,7 @@ function renderPokeChain(
         <img src="${actualPokeSprite}" alt="" class="poke__image--chain">
       </div>
       <div class="poke--chain--content">
-        <span class="poke--chain--name">${actualPokeName}</span>
+        <span class="poke--chain--name capitalize">${actualPokeName}</span>
       </div>
     </div>
     <div class="poke--chain--middle">
@@ -46,7 +46,7 @@ function renderPokeChain(
         <img src="${nextPokeSprite}" alt="" class="poke__image--chain">
       </div>
       <div class="poke--chain--content">
-        <span class="poke--chain--name">${nextPokeName}</span>
+        <span class="poke--chain--name capitalize">${nextPokeName}</span>
       </div>
     </div>
   `;

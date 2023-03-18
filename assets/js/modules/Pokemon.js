@@ -56,7 +56,7 @@ export default class Pokemon {
   static createCardHTML(pokemon) {
     return `
     <div class="main--container--pokename">
-      <h2 class="main__name--poke bold">${pokemon.name}</h2>
+      <h2 class="main__name--poke capitalize bold">${pokemon.name}</h2>
       <span class="main__id--poke">#${pokemon.id}</span>
     </div>
     <div class="main--container--pokeinfos">

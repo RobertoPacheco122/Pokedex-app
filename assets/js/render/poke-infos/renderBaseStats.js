@@ -7,7 +7,7 @@ function createStatsContent(statsArray) {
     statusItem.classList.add("poke__item--stats");
 
     statusItem.innerHTML = `
-      <span class="poke__stats--name grey--text">${stats[0].name}:</span> 
+      <span class="poke__stats--name capitalize grey--text">${stats[0].name}:</span> 
       <span class="poke__stats--value">${stats[0].stat}</span> 
     `;
     statusList.appendChild(statusItem);

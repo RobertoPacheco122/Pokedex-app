@@ -20,7 +20,7 @@ function handleChange(event) {
   const errorContainer = document.querySelector(".error--container");
 
   if (searchInput.value === "") {
-    Pokemon.getData(30);
+    Pokemon.getData(3);
     errorContainer.innerHTML = "";
     return;
   }
@@ -42,4 +42,4 @@ function handleChange(event) {
 
 searchInput.addEventListener("change", handleChange);
 
-Pokemon.getData(30);
+Pokemon.getData(3);
