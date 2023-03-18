@@ -7,11 +7,11 @@ export default class Pokemon {
     return `https://pokeapi.co/api/v2/${resource}/${pokeIdOrName}`;
   }
 
-  static getPromises(quantity) {
+  static getPromises(quantity, offset) {
     return Array(quantity)
       .fill()
-      .map((_, index) =>
-        fetch(Pokemon.getLink("pokemon", index + 1)).then((pokeData) =>
+      .map(() =>
+        fetch(Pokemon.getLink("pokemon", (offset += 1))).then((pokeData) =>
           pokeData.json()
         )
       );
@@ -133,8 +133,8 @@ export default class Pokemon {
     initTabNav(".poke__link", ".poke__section");
   }
 
-  static async getData(quantity) {
-    const allPokesPromises = Pokemon.getPromises(quantity);
+  static async getData(quantity, offset) {
+    const allPokesPromises = Pokemon.getPromises(quantity, offset);
     const allPokesData = await Promise.all(allPokesPromises);
     Pokemon.createCards(allPokesData, ".main--container--cards");
   }
