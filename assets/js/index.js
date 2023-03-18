@@ -2,6 +2,15 @@ import Pokemon from "./modules/Pokemon.js";
 
 const form = document.querySelector(".main__form");
 const searchInput = document.querySelector("#pokename");
+const loadPokesButton = document.querySelector(".main__button--load");
+const pokemonLoadNumber = 20;
+let pokemonOffsetNumber = 0;
+
+loadPokesButton.addEventListener("click", () => {
+  pokemonOffsetNumber += pokemonLoadNumber;
+
+  Pokemon.getData(pokemonLoadNumber, pokemonOffsetNumber);
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -16,12 +25,17 @@ function removeAllPokeCards(pokeCardsClass) {
 
 function handleChange(event) {
   event.preventDefault();
-  removeAllPokeCards(".main--container--poke");
   const errorContainer = document.querySelector(".error--container");
+  removeAllPokeCards(".main--container--poke");
+  if (!loadPokesButton.classList.contains("hidden")) {
+    loadPokesButton.classList.add("hidden");
+  }
 
   if (searchInput.value === "") {
-    Pokemon.getData(3);
+    pokemonOffsetNumber = 0;
+    Pokemon.getData(pokemonLoadNumber, pokemonOffsetNumber);
     errorContainer.innerHTML = "";
+    loadPokesButton.classList.remove("hidden");
     return;
   }
 
@@ -42,4 +56,4 @@ function handleChange(event) {
 
 searchInput.addEventListener("change", handleChange);
 
-Pokemon.getData(3);
+Pokemon.getData(pokemonLoadNumber, pokemonOffsetNumber);
