@@ -18,6 +18,10 @@
   text-decoration: none;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .icon {
   background-position: center;
   background-repeat: no-repeat;
