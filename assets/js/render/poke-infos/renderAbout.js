@@ -35,9 +35,6 @@ export default function renderAboutSection(pokemon, pokemonSpecies) {
         pokemonSpecies.eggGroups
       }</span>
     </p>
-    <p class="poke__text">
-      <span class="grey--text">Egg Cycle: </span>Grass
-    </p>
   `;
   return section;
 }
