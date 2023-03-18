@@ -40,6 +40,7 @@ export default class Pokemon {
           stat: stat.base_stat,
         },
       ]),
+      abilities: pokemon.abilities.map((item) => item.ability.name),
     };
   }
 
