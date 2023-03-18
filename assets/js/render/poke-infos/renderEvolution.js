@@ -62,18 +62,22 @@ export async function createEvolutionChain(pokemonSpecies) {
   await getEvolutionChainInfo(evolutionObject.chain, evolutionChainArray);
   evolutionChainArray.reverse();
 
-  for (let i = 0; i < evolutionChainArray.length - 1; i += 1) {
-    const chainElementDiv = document.createElement("div");
-    chainElementDiv.classList.add("poke--chain");
-    chainElementDiv.innerHTML = renderPokeChain(
-      evolutionChainArray[i].name,
-      evolutionChainArray[i].pixelSprite,
-      evolutionChainArray[i + 1].evolutionDetails.min_level,
-      evolutionChainArray[i + 1].name,
-      evolutionChainArray[i + 1].pixelSprite
-    );
+  if (evolutionChainArray.length === 1) {
+    chainsSection.innerHTML = `<p class="poke__text grey--text">This Pokemon doesn't have evolutions!</p>`;
+  } else {
+    for (let i = 0; i < evolutionChainArray.length - 1; i += 1) {
+      const chainElementDiv = document.createElement("div");
+      chainElementDiv.classList.add("poke--chain");
+      chainElementDiv.innerHTML = renderPokeChain(
+        evolutionChainArray[i].name,
+        evolutionChainArray[i].pixelSprite,
+        evolutionChainArray[i + 1].evolutionDetails.min_level,
+        evolutionChainArray[i + 1].name,
+        evolutionChainArray[i + 1].pixelSprite
+      );
 
-    chainsSection.appendChild(chainElementDiv);
+      chainsSection.appendChild(chainElementDiv);
+    }
   }
 
   return chainsSection;
