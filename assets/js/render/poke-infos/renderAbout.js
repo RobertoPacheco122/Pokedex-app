@@ -3,10 +3,18 @@ export default function renderAboutSection(pokemon, pokemonSpecies) {
   section.classList.add("poke__section", "poke__section--about");
 
   const genderEighths = 8;
-  const pokemonMalePorcentage =
-    ((genderEighths - pokemonSpecies.genderRate) / genderEighths) * 100;
-  const pokemonFemalePercentage =
-    (pokemonSpecies.genderRate / genderEighths) * 100;
+  const pokemonMaleEighths = pokemonSpecies.genderRate;
+  let pokemonMalePercentage;
+  let pokemonFemalePercentage;
+
+  if (pokemonMaleEighths === -1) {
+    pokemonMalePercentage = 100;
+    pokemonFemalePercentage = 0;
+  } else {
+    pokemonMalePercentage =
+      ((genderEighths - pokemonSpecies.genderRate) / genderEighths) * 100;
+    pokemonFemalePercentage = (pokemonSpecies.genderRate / genderEighths) * 100;
+  }
 
   section.innerHTML = `
     <p class="poke__text">${pokemonSpecies.flavorText}</p>
@@ -28,7 +36,7 @@ export default function renderAboutSection(pokemon, pokemonSpecies) {
 
     <h2 class="poke__subtitle bold">Breeding</h2>
     <p class="poke__text">
-      <span class="grey--text">Gender: </span> ♂ ${pokemonMalePorcentage}% ♀ ${pokemonFemalePercentage}%
+      <span class="grey--text">Gender: </span> ♂ ${pokemonMalePercentage}% ♀ ${pokemonFemalePercentage}%
     </p>
     <p class="poke__text">
       <span class="grey--text">Egg Groups: </span><span class="poke__text--eggGroups capitalize">${
