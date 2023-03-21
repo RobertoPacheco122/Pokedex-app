@@ -13,7 +13,7 @@ export default function renderSummarySection(pokemon) {
       </ul>
     </div>
     <div class="poke--container--image">
-      <img src="${pokemon.pixelSprite}" alt="" class="poke__image">
+      <img src="${pokemon.officialSprite}" alt="" class="poke__image">
       <img src="assets/img/pokeball.png" alt="" class="poke__image--ball">
     </div>
   `;
