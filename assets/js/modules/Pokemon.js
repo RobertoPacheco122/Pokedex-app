@@ -29,7 +29,6 @@ export default class Pokemon {
     return {
       name: pokemon.name,
       id: pokemon.id,
-      pixelSprite: pokemon.sprites.front_default,
       officialSprite: pokemon.sprites.other["official-artwork"].front_default,
       height: pokemon.height,
       weight: pokemon.weight,
