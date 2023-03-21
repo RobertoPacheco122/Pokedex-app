@@ -41,7 +41,7 @@
 
 .main--container--form {
   gap: 10px;
-  grid-template-columns: 1fr 0.2fr;
+  /* grid-template-columns: 1fr 0.2fr; */
 }
 
 .main--container--search {
