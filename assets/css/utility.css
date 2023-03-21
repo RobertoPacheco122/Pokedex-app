@@ -34,3 +34,9 @@
 .container-1 {
   padding: 0 1rem;
 }
+
+@media screen and (min-width: 1023px) {
+  .container-1 {
+    padding: 0 5rem;
+  }
+}
