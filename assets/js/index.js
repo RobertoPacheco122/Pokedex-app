@@ -1,4 +1,7 @@
-import Pokemon from "./modules/Pokemon.js";
+import getPokeData from "./utils/getPokeData.js";
+import getPokePromise from "./utils/getPokePromise.js";
+import { createCard } from "./render/index/renderCard.js";
+import removeAllPokeCards from "./utils/removeAllPokeCards.js";
 
 const form = document.querySelector(".main__form");
 const searchInput = document.querySelector("#pokename");
@@ -8,20 +11,12 @@ let pokemonOffsetNumber = 0;
 
 loadPokesButton.addEventListener("click", () => {
   pokemonOffsetNumber += pokemonLoadNumber;
-
-  Pokemon.getData(pokemonLoadNumber, pokemonOffsetNumber);
+  getPokeData(pokemonLoadNumber, pokemonOffsetNumber);
 });
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
-
-function removeAllPokeCards(pokeCardsClass) {
-  const cardsList = document.querySelectorAll(pokeCardsClass);
-  cardsList.forEach((card) => {
-    card.remove();
-  });
-}
 
 function handleChange(event) {
   event.preventDefault();
@@ -33,7 +28,7 @@ function handleChange(event) {
 
   if (searchInput.value === "") {
     pokemonOffsetNumber = 0;
-    Pokemon.getData(pokemonLoadNumber, pokemonOffsetNumber);
+    getPokeData(pokemonLoadNumber, pokemonOffsetNumber);
     errorContainer.innerHTML = "";
     loadPokesButton.classList.remove("hidden");
     return;
@@ -41,9 +36,9 @@ function handleChange(event) {
 
   const inputValue = searchInput.value.toLowerCase();
 
-  Pokemon.getPromise("pokemon", inputValue).then((response) => {
+  getPokePromise("pokemon", inputValue).then((response) => {
     if (response) {
-      Pokemon.createCard(response, ".main--container--cards");
+      createCard(response, ".main--container--cards");
     } else {
       fetch("./not-found.html")
         .then((result) => result.text())
@@ -56,4 +51,4 @@ function handleChange(event) {
 
 searchInput.addEventListener("change", handleChange);
 
-Pokemon.getData(pokemonLoadNumber, pokemonOffsetNumber);
+getPokeData(pokemonLoadNumber, pokemonOffsetNumber);
