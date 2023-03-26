@@ -1,5 +1,5 @@
 import renderCardTypes from "../renderCardTypes.js";
-import createPokeObject from "../../process/createPokeObject.js";
+import createPokeObject from "../../utils/createPokeObject.js";
 import addCardEvent from "../../process/addCardEvent.js";
 
 function createCardHTML(pokemon) {
