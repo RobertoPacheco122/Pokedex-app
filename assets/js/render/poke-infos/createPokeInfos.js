@@ -1,7 +1,7 @@
 import renderPokeInfos from "./renderPokeInfos.js";
 import getPokePromise from "../../utils/getPokePromise.js";
-import createPokeObject from "../../process/createPokeObject.js";
-import createPokeSpeciesObject from "../../process/createPokeSpeciesObject.js";
+import createPokeObject from "../../utils/createPokeObject.js";
+import createPokeSpeciesObject from "../../utils/createPokeSpeciesObject.js";
 import initTabNav from "../../utils/tabNav.js";
 
 async function createInfosHTML(pokemonID) {
